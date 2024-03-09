@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0%;
+            padding: 0%;
+        }
+        #car{
+            background: url(road.jpeg);
+            height: 100%;
+        }
+        #scene{
+            background: url(back.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: auto;
+            height: 610px;
+        }
+        button{
+            background-color: white;
+            color: black;
+            border: none;
+            width: 160px;
+            height: 40px;
+            border-radius: 20px;
+            margin: 20px;
+        }
+        button:hover{
+            background-color: skyblue;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    
+
+
+    <div id="scene">
+        <div id="bdiv">
+            <center>
+                <button onclick="start()">Start</button>
+                <button onclick="stop()">Stop</button>
+            </center>
+        </div>
+    </div>
+    <div id="car">
+        <img src="car.png" width="150" id="im" alt="">
+    </div>
+
+
+    
+    <script>
+        var x;
+        var m=0;
+        var img=document.getElementById('im');
+        function start(){
+            x=setInterval(anim,100);
+            function anim(){
+                if(m==1200){
+                    clearInterval(x);
+                    m=0;
+                }
+                else{
+                    m=m+10;
+                    img.style.marginLeft=m+'px';
+                }
+            }
+        }
+        function stop(){
+            clearInterval(x);
+        }
+    </script>
+
+    
+</body>
+</html>
